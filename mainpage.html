@@ -1,0 +1,72 @@
+<html>
+    <style>
+        #main-nav{
+                background-color: lightsalmon;
+            }
+            #main-nav li{
+                display: inline;
+                position: relative;
+            }
+            #main-nav ul ul{
+                display: none;
+                position: absolute;
+            }
+            #main-nav ul li{
+                list-style-type: none;
+                display: inline-block;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 30%;
+            }
+            #main-nav li:hover{
+                background-color: darksalmon;
+                color: white;
+            }
+    </style>
+    <head>
+        <title>Home Page</title>
+        <header><h1>Home</h1></header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="mainpage.html">Home</a></li>
+                <li><a href="helppage.html">Help</a></li>
+                <li><a href="aboutpage.html">About Us</a></li>
+            </ul>
+        </nav>
+    </head>
+    <body>
+        <h3><b>Welcome to the Asian Pacific Travel Guide!</b></h3>
+        <p>If you plan to travel in the South China Sea region, keep an eye out for bad 
+            weather, earthquakes, and tsunamis! With our site, we have combined data from the Hong Kong's observatory to
+            determine the chances of potential significant weather or other natural events.</p>
+        <h3>Use the form below to select a location and enter the date of your visit to check if any natural events may disrupt your visit!</h3>
+        <form name="RockPaperScissors"> <!-- WE MAKE OUR API CALL HERE -->    
+            <label for="userChoice">Your choice:</label>
+            <select id="userChoice">
+                <option value="c1">Japan</option> <!--Using c1, c2, c3, .... as placeholder for countries in the area-->
+                <option value="c2">Hong Kong</option>
+                <option value="c3">China</option>
+                <option value="c4">Phillipines</option>  
+                <!--We'll have more options, we just need to see the countries the HKO has data for-->
+            </select>
+            <br>
+            <label for="start">Start date:</label>
+            <!-- need to figure out the min/max vals, theses are temporary for now-->
+            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+            <br>
+            <label for="end">End date:</label>
+            <!-- need to figure out the min/max vals, theses are temporary for now-->
+            <input type="date" id="end" name="trip-end" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+            <!--Not sure if we need to have a maximum, we will see how far in the furture that the HKO can predict-->
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <!-- RESULTS HERE -->
+        <!-- will be a hidden text box just like assignment 2's dog box -->
+        <!-- TEMPORARY paragraph here to just write down the results we want to show-->
+        <!-- The actual box will be populated using a FETCH call, just like the A2 dog box too-->
+        <h3>Results:</h3>
+        <p>Here we'll show any potential warnings necessary- bad weather, tsunamis, earthquakes, etc.</p>
+    </body>
+</html>
