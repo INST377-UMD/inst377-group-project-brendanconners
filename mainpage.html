@@ -1,37 +1,70 @@
 <html>
     <style>
-        #main-nav{
-                background-color: lightsalmon;
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
             }
-            #main-nav li{
+        
+        .content {
+            padding: 0px;
+            text-align: center;
+            }
+        header{
+            text-align: center;
+            background-color:coral;
+            padding: 10px;
+            margin: 0;
+        }
+        #main-nav{
+                background-color:lightgreen;
+            }
+        #main-nav li{
                 display: inline;
                 position: relative;
+                padding: 0;
+                margin: 0;
             }
-            #main-nav ul ul{
+        #main-nav ul ul{
                 display: none;
                 position: absolute;
             }
-            #main-nav ul li{
+        #main-nav ul li{
                 list-style-type: none;
                 display: inline-block;
                 text-align: center;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                width: 30%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 32%;
             }
-            #main-nav li:hover{
-                background-color: darksalmon;
+        #main-nav li:hover{
+                background-color:darkslategray;
                 color: white;
             }
-            #main-nav a {
+        #main-nav a {
             display: block;
             text-decoration: none;
             color: inherit;
             }
+            
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .container > div {
+            width: 30%;
+            background-color: antiquewhite;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 8px;
+            border: 5px black;
+        }
     </style>
     <head>
         <title>Home Page</title>
-        <header><h1>Home</h1></header>
+        <header><h1>Main Page!</h1></header>
         <nav id="main-nav">
             <ul>
                 <li><a href="mainpage.html">Home</a></li>
