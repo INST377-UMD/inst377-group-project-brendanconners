@@ -50,14 +50,16 @@
             
         .container {
             display: flex;
-            justify-content: space-around;
+            justify-content:space-evenly;
+            flex-wrap: wrap;
+            padding: 0%;
         }
 
         .container > div {
-            width: 30%;
+            width: 40%;
             background-color:antiquewhite;
-            padding: 15px;
-            margin: 5px;
+            padding: 5px;
+            margin-right: 5px;
             border-radius: 8px;
             border: 5px black;
         }
@@ -74,7 +76,26 @@
         </nav>
     </head>
     <body>
-        <h3>TEMPORARY</h3>
-        <p>TMP- This is how to use our API</p>
+        <div class = 'content'>
+            <div class = 'container'>
+                <div>
+                    <h3>
+                        API Information: 
+                    </h3>
+                    <h4>API Used: </h4>
+                    <p><a href="https://data.weather.gov.hk/weatherAPI/opendata/weather.php" title="API Used" >https://data.weather.gov.hk/weatherAPI/opendata/weather.php</a></p>
+                    <h4>Documentation of API: </h4>
+                    <p><a href ="https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf" title = "Documentation"> https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf</a></p>
+                    <h4> Request Example: </h4>
+                    <p><a href = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en" title = "Request Example"> https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en</a></p>
+                </div>
+                <div>
+                    <h3>
+                        About our API
+                    </h3>
+                </div>
+
+            </div>
+        </div>
     </body>
 </html>
