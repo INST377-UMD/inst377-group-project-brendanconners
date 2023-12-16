@@ -1,32 +1,118 @@
 <html>
     <style>
-        #main-nav{
-                background-color: lightsalmon;
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
             }
-            #main-nav li{
+        
+        .content {
+            padding: 0px;
+            text-align: center;
+            }
+        header{
+            text-align: center;
+            background-color:coral;
+            padding: 10px;
+            margin: 0;
+        }
+        #main-nav{
+                background-color:lightgreen;
+            }
+        #main-nav li{
                 display: inline;
                 position: relative;
+                padding: 0;
+                margin: 0;
             }
-            #main-nav ul ul{
+        #main-nav ul ul{
                 display: none;
                 position: absolute;
             }
-            #main-nav ul li{
+        #main-nav ul li{
                 list-style-type: none;
                 display: inline-block;
                 text-align: center;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                width: 30%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 32%;
             }
-            #main-nav li:hover{
-                background-color: darksalmon;
+        #main-nav li:hover{
+                background-color:darkslategray;
                 color: white;
             }
+        #main-nav a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            }
+            
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 0%;
+        }
+
+        .container > div {
+            width: 40%;
+            background-color: antiquewhite;
+            padding: 5px;
+            margin-right: 5px;
+            border-radius: 8px;
+            border: 5px black;
+        }
+        #bottom-nav{
+            background-color:lightgreen;
+        }
+        #bottom-nav li{
+            display: inline;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+        #bottom-nav ul ul{
+            display: none;
+            position: absolute;
+        }
+        #bottom-nav ul li{
+            list-style-type: none;
+            display: inline-block;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 32%;
+        }
+        #bottom-nav li:hover{
+            background-color:darkslategray;
+            color: white;
+        }
+        #bottom-nav a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .emergency-box {
+            display:block;
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: firebrick;
+        }
+        .emergency-legend {
+            display:block;
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: slategray;
+        }
+            
     </style>
+    <script src="apiCalls.js"></script>
     <head>
         <title>Home Page</title>
-        <header><h1>Home</h1></header>
+        <header><h1>Main Page!</h1></header>
         <nav id="main-nav">
             <ul>
                 <li><a href="mainpage.html">Home</a></li>
@@ -35,38 +121,23 @@
             </ul>
         </nav>
     </head>
-    <body>
-        <h3><b>Welcome to the Asian Pacific Travel Guide!</b></h3>
-        <p>If you plan to travel in the South China Sea region, keep an eye out for bad 
+    <body onload="javascript:warningInfo()">
+        <h3><b>Welcome to the Traveler's Hong Kong Weather Guide!</b></h3>
+        <p>If you plan to travel in the Hong Kong, keep an eye out for bad 
             weather, earthquakes, and tsunamis! With our site, we have combined data from the Hong Kong's observatory to
-            determine the chances of potential significant weather or other natural events.</p>
-        <h3>Use the form below to select a location and enter the date of your visit to check if any natural events may disrupt your visit!</h3>
-        <form name="RockPaperScissors"> <!-- WE MAKE OUR API CALL HERE -->    
-            <label for="userChoice">Your choice:</label>
-            <select id="userChoice">
-                <option value="c1">Japan</option> <!--Using c1, c2, c3, .... as placeholder for countries in the area-->
-                <option value="c2">Hong Kong</option>
-                <option value="c3">China</option>
-                <option value="c4">Phillipines</option>  
-                <!--We'll have more options, we just need to see the countries the HKO has data for-->
-            </select>
-            <br>
-            <label for="start">Start date:</label>
-            <!-- need to figure out the min/max vals, theses are temporary for now-->
-            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
-            <br>
-            <label for="end">End date:</label>
-            <!-- need to figure out the min/max vals, theses are temporary for now-->
-            <input type="date" id="end" name="trip-end" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
-            <!--Not sure if we need to have a maximum, we will see how far in the furture that the HKO can predict-->
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-        <!-- RESULTS HERE -->
-        <!-- will be a hidden text box just like assignment 2's dog box -->
-        <!-- TEMPORARY paragraph here to just write down the results we want to show-->
-        <!-- The actual box will be populated using a FETCH call, just like the A2 dog box too-->
-        <h3>Results:</h3>
-        <p>Here we'll show any potential warnings necessary- bad weather, tsunamis, earthquakes, etc.</p>
+            determine the chances of potential significant weather or other natural events that can disrupt one's visit.</p>
+        
+        <h3>Select an option below to be redirected to a page with the information that you are seeking!</h3>
+        <nav id="bottom-nav">
+            <ul>
+                <li><a href="generalInfo.html">General Weather Info</a></li>
+                <li><a href="dailyForecast.html">Daily Forecast</a></li>
+            </ul>
+        </nav>
+        <div class="emergency-box" id ="emergencyBox">
+            <h1 id ="emergency">EMERGENCY:</h1>
+        </div>
+        <!-- NEED TO ADD AN EVENT LISTENER OR OTHER METHOD TO REDIREECT TO EMERGENCY TIPS PAGE-->
+        <input type="submit" value="Emergency Tips" id="emergencyTipsBtn">
     </body>
 </html>

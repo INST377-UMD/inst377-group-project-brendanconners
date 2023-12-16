@@ -1,0 +1,103 @@
+<html>
+    <style>
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            }
+        
+        .content {
+            padding: 0px;
+            text-align: center;
+            }
+        header{
+            text-align: center;
+            background-color:coral;
+            padding: 10px;
+            margin: 0;
+        }
+        #main-nav{
+                background-color:lightgreen;
+            }
+        #main-nav li{
+                display: inline;
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+        #main-nav ul ul{
+                display: none;
+                position: absolute;
+            }
+        #main-nav ul li{
+                list-style-type: none;
+                display: inline-block;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 32%;
+            }
+        #main-nav li:hover{
+                background-color:darkslategray;
+                color: white;
+            }
+        #main-nav a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            }
+            
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 0%;
+        }
+
+        .container > div {
+            width: 40%;
+            background-color: antiquewhite;
+            padding: 5px;
+            margin-right: 5px;
+            border-radius: 8px;
+            border: 5px black;
+        }
+        .description-box {
+            display:none;
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: gray;
+        }
+        .main-container {
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: mintcream;
+        }
+        
+    </style>
+    <script src="apiCalls.js"></script>
+    <head>
+        <title>Emergency Tips</title>
+        <header><h1>EMERGENCY TIPS</h1></header>
+    </head>
+    <body>
+        <div class="emergency-legend" id="emergencyLegend">
+            <h3>Emergency Code Legend</h3>
+            <p>WFIRE: Fire Danger Warning</p>
+            <p>WFROST: Frost Warning</p>
+            <p>WHOT: Hot Weather Warning</p>
+            <p>WCOLD: Cold Weather Warning</p>
+            <p>WMSGNL: Strong Monsoon Signal</p>
+            <p>WTCPRE8: Pre-no.8 Special Announcement</p>
+            <p>WRAIN: Rainstorm Warning Signal</p>
+            <p>WFNTSA: Special Announcement on Flooding in the northern New Territories</p>
+            <p>WL: Landslip Warning</p>
+            <p>WTCSGNL: Tropical Cyclone Warning Signal</p>
+            <p>WTMW: Tsunami Warning</p>
+            <p>WTS: Thunderstorm Warning </p>
+         </div>
+    </body>
+</html>

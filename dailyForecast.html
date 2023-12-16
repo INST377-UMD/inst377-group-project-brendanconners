@@ -50,24 +50,37 @@
             
         .container {
             display: flex;
-            justify-content:space-evenly;
+            justify-content: space-evenly;
             flex-wrap: wrap;
             padding: 0%;
         }
 
         .container > div {
             width: 40%;
-            background-color:antiquewhite;
+            background-color: antiquewhite;
             padding: 5px;
             margin-right: 5px;
             border-radius: 8px;
             border: 5px black;
         }
+        .description-box {
+            display:none;
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: gray;
+        }
+        .main-container {
+            margin: 10px auto;
+            border: 2px solid black;
+            padding: 5px;
+            background-color: mintcream;
+        }
         
     </style>
     <head>
-        <title>Help Page</title>
-        <header><h1>Help Page!</h1></header>
+        <title>Daily Forecast Page</title>
+        <header><h1>Daily Forecast</h1></header>
         <nav id="main-nav">
             <ul>
                 <li><a href="mainpage.html">Home</a></li>
@@ -77,32 +90,27 @@
                 <li><a href="dailyForecast.html">Daily Forecast</a></li>
             </ul>
         </nav>
+        <script src="apiCalls.js"></script>
     </head>
-    <body>
-        <div class = 'content'>
-            <div class = 'container'>
-                <div>
-                    <h3>
-                        API Information
-                    </h3>
-                    <h4>API Used: </h4>
-                    <p><a href="https://data.weather.gov.hk/weatherAPI/opendata/weather.php" title="API Used" >https://data.weather.gov.hk/weatherAPI/opendata/weather.php</a></p>
-                    <h4>Documentation of API: </h4>
-                    <p><a href ="https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf" title = "Documentation"> https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf</a></p>
-                    <h4> Request Example: </h4>
-                    <p><a href = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en" title = "Request Example"> https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en</a></p>
-                </div>
-                <div>
-                    <h3>
-                        About our API
-                    </h3>
-                    <h4><u>HTTP Request Method</u></h4>
-                    <p>GET</p>
-                    <h4><u>Return Type</u></h4>
-                    <p>JSON</p>
-                    
-                </div>
-
+    <body onload="javascript: createForm()">
+        <div class="main-container" id="mainContainer">
+            <div class="instruction-box" id="instructionBox">
+                <h3>Select a date from the next nine days for a brief forecast summary, 
+                    the high/low temperature, and the probability of significant rainfall!</h3>
+            </div>
+            <div class="form-box" id="formBox">
+                <form name="apiChoices" onsubmit="getForecast(); return false"> <!-- WE MAKE OUR API CALL HERE -->
+                    <lable for="dayChoice">Select a day: </lable>    
+                    <select name="dayChoice" id="dayChoice"></select>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="description-box" id ="description">
+                <h3 id ="forecast"></h3>
+                <h3 id ="highTemp"></h3>
+                <h3 id ="lowTemp"></h3>
+                <h3 id ="psr"></h3>
             </div>
         </div>
     </body>
