@@ -19,4 +19,3 @@
 
 
 
-## Developer Manual
