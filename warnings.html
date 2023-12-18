@@ -63,81 +63,36 @@
             border-radius: 8px;
             border: 5px black;
         }
-        #bottom-nav{
-            background-color:lightgreen;
-        }
-        #bottom-nav li{
-            display: inline;
-            position: relative;
-            padding: 0;
-            margin: 0;
-        }
-        #bottom-nav ul ul{
-            display: none;
-            position: absolute;
-        }
-        #bottom-nav ul li{
-            list-style-type: none;
-            display: inline-block;
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            width: 32%;
-        }
-        #bottom-nav li:hover{
-            background-color:darkslategray;
-            color: white;
-        }
-        #bottom-nav a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-        .emergency-box {
+        .description-box {
             display:block;
             margin: 10px auto;
             border: 2px solid black;
             padding: 5px;
-            background-color: firebrick;
+            background-color: gray;
         }
-        .emergency-legend {
-            display:block;
+        .main-container {
             margin: 10px auto;
             border: 2px solid black;
             padding: 5px;
-            background-color: slategray;
+            background-color: mintcream;
         }
-            
+        
     </style>
     <script src="apiCalls.js"></script>
     <head>
-        <title>Home Page</title>
-        <header><h1>Main Page!</h1></header>
+        <title>Warning Page</title>
+        <header><h1>Warning Page</h1></header>
         <nav id="main-nav">
             <ul>
                 <li><a href="mainpage.html">Home</a></li>
                 <li><a href="helppage.html">Help</a></li>
                 <li><a href="aboutpage.html">About Us</a></li>
-            </ul>
-        </nav>
-    </head>
-    <body onload="javascript:warningInfo()">
-        <h3><b>Welcome to the Traveler's Hong Kong Weather Guide!</b></h3>
-        <p>If you plan to travel in the Hong Kong, keep an eye out for bad 
-            weather, earthquakes, and tsunamis! With our site, we have combined data from the Hong Kong's observatory to
-            determine the chances of potential significant weather or other natural events that can disrupt one's visit.</p>
-        
-        <h3>Select an option below to be redirected to a page with the information that you are seeking!</h3>
-        <nav id="bottom-nav">
-            <ul>
                 <li><a href="generalInfo.html">General Weather Info</a></li>
                 <li><a href="dailyForecast.html">Daily Forecast</a></li>
             </ul>
         </nav>
-        <div class="emergency-box" id ="emergencyBox">
-            <h1 id ="emergency">EMERGENCY:</h1>
-        </div>
-        <!-- NEED TO ADD AN EVENT LISTENER OR OTHER METHOD TO REDIREECT TO EMERGENCY TIPS PAGE-->
-        <input type="submit" value="Emergency Tips" id="emergencyTipsBtn">
+    </head>
+    <body onload="javascript: warningInfo()">
+        <h1>FILLER</h1>
     </body>
 </html>

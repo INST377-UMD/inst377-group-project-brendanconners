@@ -1,0 +1,147 @@
+function getForecast() {
+    var choice = "fnd"
+    var idx = document.getElementById("dayChoice").value
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log("INSIDE FETCH")
+        console.log(res)
+        //date is out of order (ooo) - returned as YYYYMMDD
+        oooDate = res.weatherForecast[idx].forecastDate; //out of order date
+        //fix date to MM/DD/YYYY
+        date = "" + oooDate.charAt(4) + oooDate.charAt(5) + "/" + oooDate.charAt(6) + oooDate.charAt(7) + "/" + oooDate.substring(0,4)
+        //fill in fields for "description" in dailyForecast HTML file
+        //date and summary
+        document.getElementById('forecast').innerHTML = "Forecast for " + res.weatherForecast[idx].week 
+        + "(" + date+ "): "  + res.weatherForecast[idx].forecastWeather;
+        //high temp converted to Fahrenheit
+        var highInF = ((res.weatherForecast[idx].forecastMaxtemp.value * 9) / 5) + 32;
+        document.getElementById('highTemp').innerHTML = res.weatherForecast[idx].week + "'s high: " + highInF + " ºF";
+        //low temp converted to Fahrenheit
+        var lowInF = ((res.weatherForecast[idx].forecastMintemp.value * 9) / 5) + 32;
+        document.getElementById('lowTemp').innerHTML = res.weatherForecast[idx].week + "'s low: " + lowInF + " ºF";
+        //probability of significant raingfall (PSR)
+        document.getElementById('psr').innerHTML = res.weatherForecast[idx].week + "'s chance of rain: " + res.weatherForecast[idx].PSR;
+        //make the forecast appear after the user submits the day they want to see
+        document.getElementById('description').style.display = "block";
+    });
+}
+function createForm() {
+    var choice = "fnd"
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log("INSIDE FETCH")
+        console.log(res)
+        console.log(res.weatherForecast.length)
+        for(idx = 0; idx < res.weatherForecast.length; idx ++) {
+            //date is out of order (ooo) - returned as YYYYMMDD
+            var oooDate = res.weatherForecast[idx].forecastDate; //out of order date
+            //fix date to MM/DD/YYYY
+            var date = "" + oooDate.charAt(4) + oooDate.charAt(5) + "/" + oooDate.charAt(6) + oooDate.charAt(7)
+            var option = document.createElement("option");
+            option.text = res.weatherForecast[idx].week + " (" + date + ")";
+            option.value = idx;
+            document.getElementById("dayChoice").add(option);
+        }
+    });
+}
+function loadGeneralInfo() {
+    var choice = "flw"
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log("TEST")
+        console.log(res)
+        document.getElementById("forecastPeriod").innerHTML = res.forecastPeriod + ":";
+        document.getElementById("generalSituation").innerHTML = res.generalSituation;
+        document.getElementById("forecastDescription").innerHTML = res.forecastDesc;
+        document.getElementById("outlookHeader").innerHTML = "Outlook for the remainder of the week:";
+        document.getElementById("outlook").innerHTML = res.outlook;
+        var oooDateTime = res.updateTime;
+        //13 hours ahead
+        // MAY NEED TO FIX INDEXES TO AVOID HARD CODE
+        // use indexOf('T') ----> their date/time format has time following "T" everytime
+        // with this index, create a substring relative to that position
+        // (current implementation works for now)
+        var time = oooDateTime.substring(11,19)
+        date = "" + oooDateTime.substring(5,7) + "/" + oooDateTime.substring(8,10) + ", " + time + " (EST + 13)"
+        document.getElementById("updateTime").innerHTML = "Last updated: " + date;
+    });
+}
+function warningInfo() {
+    var choice = "warningInfo"
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log("TEST")
+        console.log(res)
+        
+        for(dIdx = 0; dIdx < res.details.length; dIdx++) {
+            var option = document.createElement("option");
+            option.text = res.details[dIdx].contents[0];
+            option.value = dIdx;
+            document.getElementById("emergencyBox").appendChild(option); 
+
+            /*
+            for(idx = 0; idx < res.details[dIdx].contents.length; idx ++) {
+                var option = document.createElement("option");
+                option.text = res.details[dIdx].contents[idx];
+                option.value = idx;
+                
+                document.getElementById("emergencyBox").appendChild(option); 
+                if(idx = res.details[dIdx].contents.length - 1) {
+                    var spacer = document.createElement("spacer");
+                    spacer.text = ""
+                    document.getElementById("emergencyBox").appendChild(option); 
+                }
+            }
+            */
+        }
+        
+        /*
+        for(idx = 0; idx < res.details.length; idx ++) {
+            //var warning = document.createElement("warning");
+            var option = document.createElement("option");
+            option.text = res.details.warningStatementCode + ": " + "DESC" +  " from: " + "TIME";
+            option.value = idx;
+
+            document.getElementById("emergencyBox").appendChild(option);
+
+        }
+        */
+    });
+}
+
+/*
+function emergencyInfo() {
+    var choice = "flw"
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log("TEST")
+        console.log(res)
+        
+        document.getElementById("fire").innerHTML = res.fireDangerWarning;
+        document.getElementById("cyclone").innerHTML = res.tcInfo;
+        // the API returns an empty string for fire warnings and tropical cyclone warnings
+        // if either have any length, an emergency message will be promptly displayed on the page
+        if(res.fireDangerWarning.length > 0 || res.tcInfo.length > 0) {
+            document.getElementById.apply("emergency").style.display = "block";
+        }
+        // A test for our home page emergency display system
+       
+        document.getElementById("fire").innerHTML = "FIRE TEST";
+        document.getElementById("cyclone").innerHTML = "CYCLONE TEST";
+        if(document.getElementById("cyclone").innerHTML.length > 0 || document.getElementById("fire").innerHTML.length > 0) {
+            document.getElementById("emergencyBox").style.display = "block";
+        }
+        
+    });
+}
+*/
+
