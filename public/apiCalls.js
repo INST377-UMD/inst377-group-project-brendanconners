@@ -76,12 +76,8 @@ function warningInfo() {
 
     fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
     .then((res) => res.json())
-    .then((res) => {
-        console.log("TEST")
-        console.log(res)
-        
+    .then((res) => {     
         toStr = JSON.stringify(res);
-        console.log("leng:" + toStr.length)
         if("display" in res) { // if display exists in the response, emergency messages exist and must be shown
             for(dIdx = 0; dIdx < res.length; dIdx++) {
                 var option = document.createElement("option");
