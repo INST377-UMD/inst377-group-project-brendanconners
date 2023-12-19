@@ -1,11 +1,21 @@
 # inst377-group-project-brendanconners
 # Group 26: Brendan Conners, Daniel Adams, Joan Ojukwu
 
---------------PROJECT TITLE--------------
+## Hong Kong Weather Webpage
  
---------------PROJECT DESCRIPTION--------------
+For this project, we decided to create a weather wguide for travelers who want to visit Hong Kong! We also wanted to make people aware of significant weather in the area including earthquakes, tsunami's, severe hurricane's and more.
+
+We have a daily forecast section that gives you a selection of days, gives a brief forecast summary of it, as well as the high and low temperature's, and even the probability of significant rainfall.
+
+We also give general weather information for the day, for something quick and easy, it gives you all of the current events for the day, as well as broad regional weather and a timeline of the weather for the day.
+
+Finally we have a nine day forecast chart, that plots temperature or humidity, so if you want to see the maximum temperature over the nine day period to find some patterns then you are completly capable of doing that.
+
+We created this project to make looking at weather in a very densely populated region easy and fun to use, it is an alterate approach to the traditional weather app, that can be very complciated  and difficult to use.
  
---------------TARGET BROWSERS--------------
+### Target Audience
+
+For this Project, our target audience could be anyone who visits Hong Kong. This could be people who live in Hong Kong who dont like the weather app, or for tourists who dont want to use traditional weather apps, and want a more in depth easy to use system. There is no preference for IOS or android, as they can both use this webpage, it is designed for anyone who wants to not only know the weather, but have an interest with severe weather and are curious about it.
  
 --------------DEV MANUAL--------------
 INSTALLATIONS AND CONFIGURATIONS (nvm, npm, nodemon, express, supabase-js)
