@@ -99,8 +99,10 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${ch
     */
   })
   .catch(error => console.error(error));
-  
-ROAD MAP- 
+```
+
+### ROAD MAP
+When working with all of the API's we knew it was going to get complicated, and so the goal was to create all of the CSS / styling first so then we can all focus on the API. Next the Hong Kong API was different than the ones we have used before. It is unique in the sense that you dont have to add a '/' at the end with the specific data you are trying to get, rather type in a specific code in the 'dataType' part of the URL and they are linked. Next we knew that we were going to have issues all working on the same repository, with all remote local computers, and so it took some trial and error in order to fix that and create seperate branches. When Using this API there are things like the forecast weather Icon, that is supposed to return a icon, but in reality it is only a number that coorespondes to an icon, so we have to get rid of that when trying to use the information itself. You can use this API for future development with other areas surrounding Hong Kong. With more time and more data, future development could add other areas to do the same thing, all thats needed is the data itself.
 
 USER MANUAL
 Should just be about using our site
