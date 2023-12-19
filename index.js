@@ -13,7 +13,21 @@ const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 app.get('/', (req, res) => {
     res.sendFile('public/INST377-Week10-PPT.html', { root: __dirname })
 })
-
+app.get('/aboutpage', (req, res) => {
+    res.sendFile('public/aboutpage.html', { root: __dirname })
+})
+app.get('/nineday', (req, res) => {
+    res.sendFile('public/nineDayChart.html', { root: __dirname })
+})
+app.get('/genInfo', (req, res) => {
+    res.sendFile('public/generalInfo.html', { root: __dirname })
+})
+app.get('/dailyFor', (req, res) => {
+    res.sendFile('public/dailyForecast.html', { root: __dirname })
+})
+app.get('/help', (req, res) => {
+    res.sendFile('public/helppage.html', { root: __dirname })
+})
 app.get('/users', async (req, res) => {
     console.log(`Getting Users`)
 
