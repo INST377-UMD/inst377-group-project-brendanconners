@@ -1,8 +1,7 @@
-async function getEarthquakereport()
-{
+async function getEarthquakereport() {
     console.log('Creating Earthquake Report')
     var host = window.location.origin;
-    var test = await fetch(`${host}/users`, 
+    var test = await fetch(`${host}/reporters`, 
     {
         method: 'GET',
         headers:
@@ -22,8 +21,8 @@ async function getEarthquakereport()
         throw Error(JSON.stringify(await res.json()));
     })
     .then((res) => {
-        console.log(res)
-        const element = document.getElementById("customerInfo");
+        // console.log(res)
+        const element = document.getElementById("reporterInfo");
         if (element) {
             element.remove();
         }
@@ -82,7 +81,7 @@ async function getEarthquakereport()
         console.log('Error:', JSON.parse(error.message))
         var errorMessage = error.createElement('div')
         div.setAttribute('class', 'errorBox');
-        div.setAttribute('id', 'errorBox');
+        div.setAttribute('report_id', 'errorBox');
 
         var h1 = document.createElement('h1')
         h1.innerHTML = `Error Occured:`
@@ -99,7 +98,7 @@ async function addReporter() {
     console.log('Creating Report')
     var host = window.location.origin;
 
-    var test = await fetch(`${host}/users`, {
+    var test = await fetch(`${host}/reporters`, {
         method: 'POST',
         body: JSON.stringify({
             "name": `${document.getElementById('name').value}`,
@@ -111,7 +110,7 @@ async function addReporter() {
             "Content-type": "application/json"
         }
     })
-    await getUsers();
+    await getEarthquakereport();
 }
 
-window.onload = getUsers;
+window.onload = getEarthquakereport;

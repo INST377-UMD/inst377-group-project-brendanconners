@@ -1,100 +1,102 @@
 <html>
-    <style>
-        table, th, td  {
-            border: 1px solid black;
-            padding: 5px;
-            margin-top: 10px;
-            background-color: white;
-        }
-        #errorBox {
-            background-color: rgb(209, 81, 81);
-            color: white;
-            border: 3px solid black;
-            margin: 10px;
-            padding: 5px;
-        }
-        body {
-            background-color: skyblue;
-            margin: 0;
-            padding: 0;
-            font-family: "Gill Sans", sans-serif;
-        }
-        .content {
-            padding: 0px;
-            text-align: left;
-        }
-
-        .center-align {
-            text-align: center;
-        }
-        
-        header{
-            text-align: center;
-            color:black;
-            background-color:green;
-            color: white;
-            padding: 10px;
-            margin: 0;
-        }
-        #main-nav{
-                background-color: rgb(62, 183, 62);
-                color:white;
-        }
-        
-        #main-nav li{
-                display: inline;
-                position: relative;
-                padding: 0;
-                margin: 0;
+    <head>
+        <script src="tempForm.js" defer></script>
+        <style>
+            table, th, td  {
+                border: 1px solid black;
+                padding: 5px;
+                margin-top: 10px;
+                background-color: white;
             }
-        #main-nav ul ul{
-                display: none;
-                position: absolute;
-            }
-        #main-nav ul li{
-                list-style-type: none;
-                display: inline-block;
-                text-align: center;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                width: 32%;
-            }
-        #main-nav li:hover{
-                background-color:darkslategray;
+            #errorBox {
+                background-color: rgb(209, 81, 81);
                 color: white;
+                border: 3px solid black;
+                margin: 10px;
+                padding: 5px;
             }
-        #main-nav a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
+            body {
+                background-color: skyblue;
+                margin: 0;
+                padding: 0;
+                font-family: "Gill Sans", sans-serif;
+            }
+            .content {
+                padding: 0px;
+                text-align: left;
+            }
+
+            .center-align {
+                text-align: center;
             }
             
-        .container {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-        }
+            header{
+                text-align: center;
+                color:black;
+                background-color:green;
+                color: white;
+                padding: 10px;
+                margin: 0;
+            }
+            #main-nav{
+                    background-color: rgb(62, 183, 62);
+                    color:white;
+            }
+            
+            #main-nav li{
+                    display: inline;
+                    position: relative;
+                    padding: 0;
+                    margin: 0;
+                }
+            #main-nav ul ul{
+                    display: none;
+                    position: absolute;
+                }
+            #main-nav ul li{
+                    list-style-type: none;
+                    display: inline-block;
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    width: 32%;
+                }
+            #main-nav li:hover{
+                    background-color:darkslategray;
+                    color: white;
+                }
+            #main-nav a {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                }
+                
+            .container {
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+            }
 
-        .container > div {
-            width: 40%;
-            background-color:antiquewhite;
-            padding: 15px;
-            margin: 5px;
-            border-radius: 8px;
-            border: 5px black;
-        }
-        footer {
-            bottom: 0;
-            position: absolute;
-            width: 100%;
-            height: auto;
-            background-color:#333;
-            color: white;
-            text-align: center;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-    </style>
+            .container > div {
+                width: 40%;
+                background-color:antiquewhite;
+                padding: 15px;
+                margin: 5px;
+                border-radius: 8px;
+                border: 5px black;
+            }
+            footer {
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                height: auto;
+                background-color:#333;
+                color: white;
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        </style>
     <head>
         <title>Earthquake Reporting Form</title>
         <header>
@@ -127,6 +129,9 @@
             <label for="Name">Last Name or Company Name:</label>
             <input type="text" id="Name" required>
             <br>
+            <label for="destrict">Desctrict</label>
+            <input type="text" id="destrict" required>
+            <br>
             <label for="timeStamp">Time Stamp</label>
             <input type="datetime-local" id="timeStamp" required>
             <br>
@@ -143,7 +148,7 @@
         <div class="emergency-box" id ="emergencyBox">
             <h1 id ="emergency">EMERGENCY:</h1>
         </div>
-        <footer>INST377 Copyright by Brendan Conners, Daniel Adams, and Joan Ojukwu </footer
+        <!-- <footer>INST377 Copyright by Brendan Conners, Daniel Adams, and Joan Ojukwu </footer -->
         </body>
     
 </html>

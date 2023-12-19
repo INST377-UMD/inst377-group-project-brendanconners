@@ -11,14 +11,14 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 app.get('/', (req, res) => {
-    res.sendFile('tempForm.html', { root: __dirname })
+    res.sendFile('public/tempForm.html', { root: __dirname })
 })
 
 app.get('/reporters', async (req, res) => {
     console.log(`Getting Earthquake Reports`)
 
     const {data, error} = await supabase
-    .from('Customer')
+    .from('Reported Earthquakes')
     .select();
 
     if(error) {
@@ -50,7 +50,7 @@ app.post('/reporters', async (req, res) => {
     console.log("indexDescription: " + description);
 
     const {data, error} =  await supabase
-        .from('Reporters')
+        .from('Reported Earthquakes')
         .insert([
             {'rep_name': name, 
             'rep_timeStamp': timeStamp, 
