@@ -17,7 +17,7 @@ We created this project to make looking at weather in a very densely populated r
 
 For this Project, our target audience could be anyone who visits Hong Kong. This could be people who live in Hong Kong who dont like the weather app, or for tourists who dont want to use traditional weather apps, and want a more in depth easy to use system. There is no preference for IOS or android, as they can both use this webpage, it is designed for anyone who wants to not only know the weather, but have an interest with severe weather and are curious about it.
  
---------------DEV MANUAL--------------
+## Developer Manual
 INSTALLATIONS AND CONFIGURATIONS (nvm, npm, nodemon, express, supabase-js)
 Libraries used 
 Chart.JS
@@ -46,8 +46,13 @@ Npm install @supabase/supabase-js
   Supabase client required field is included in line 3 of index.js
 Once above installation finishes, access the package.json file
   In this file, add (all excluding brackets) <”start”: “nodemon -e ‘*’”,> In the scripts section of the file (right below line 6).
---------------API DOCS--------------
-(FOR EACH API ENDPOINT WE USED) Just discuss the API urls we used
+## API Docs
+ In this Project we used two main API's we used: 
+[Chart.JS API](https://www.chartjs.org/docs/latest/)
+This API enabled us to be able to chart the weather information from the Hong Kong API
+[Hong Kong Severe Weather API](https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf)
+This API is where we got all of our information from, since the API itself is in Mandarin, I linked the documentation page where you can see how to call it and use it in english, with examples of it
+
 1.) var choice = "fnd"
     fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
 res = {
