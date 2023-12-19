@@ -103,7 +103,7 @@ var choice = "flw"
     .then((res) => {
         console.log(res)
     });
-  // 
+  // Populates the Emergency Box on homepage IF emergency warnings exist inside the returned JSON object
 ```
 
 ### ROAD MAP
