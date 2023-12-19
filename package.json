@@ -1,0 +1,18 @@
+{
+  "name": "inst377-group-project-brendanconners",
+  "version": "1.0.0",
+  "description": "Final Project INST 377",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joan Ojukwu, Brendan Conners, Daniel Adams",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.1",
+    "express": "^4.18.2",
+    "nodemo": "^1.0.0",
+    "nodemon": "^3.0.2"
+  }
+}
