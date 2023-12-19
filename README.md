@@ -58,30 +58,48 @@ For this Project, our target audience could be anyone who visits Hong Kong. This
 2. In this file, add (all excluding brackets) `<"start": "nodemon -e '*'",>` in the scripts section of the file (right below line 6).
 
 ## API Docs
- In this Project we used two main API's we used: 
-[Chart.Js API](https://www.chartjs.org/docs/latest/)
-This API enabled us to be able to chart the weather information from the Hong Kong API.
-[Hong Kong Severe Weather API](https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf)
-This API is where we got all of our information from, since the API itself is in Mandarin, I linked the documentation page where you can see how to call it and use it in english, with examples of it
 
-1.) var choice = "fnd"
-    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
-res = {
-  "generalSituation": string,
-  "seaTemp": [
-      {"place": string},
-      {"recordTime": date},
-      {"unit": string, value: int}
-  ],
-  "soilTemp": [
-      {"0": []}.
-      
-  ]  
+In this project, we used two main APIs:
+
+1. **[Chart.Js API](https://www.chartjs.org/docs/latest/)**
+
+   This API enabled us to chart the weather information from the Hong Kong API.
+
+2. **[Hong Kong Severe Weather API](https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf)**
+
+   This API is the source of all the information. Since the API itself is in Mandarin, the linked documentation page provides information on how to call it and use it in English, with examples.
+
+### Hong Kong Severe Weather API Usage Example:
+
+```javascript
+var choice = "fnd";
+fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+  .then(response => response.json())
+  .then(data => {
+    // Returned JSON object structure
+    console.log(data);
+    /*
+      res = {
+        "generalSituation": string,
+        "seaTemp": [
+          {"place": string},
+          {"recordTime": date},
+          {"unit": string, "value": int}
+        ],
+        "soilTemp": [
+          {"0": []}
+        ]
+      };
+    */
     
-};
-----------------------------
-JSON object returned, what fields, what type is everything (int, string, array, etc.)
- TESTING- we testing on a trial by error basis using console.log(). Key console.log() instances were kept for developers to understand the code at first glance.
+    // JSON object returned, specifying fields and data types
+    /*
+      TESTING- we tested on a trial by error basis using console.log(). 
+      Key console.log() instances were kept for developers to understand the code at first glance.
+    */
+  })
+  .catch(error => console.error(error));
+  
 ROAD MAP- 
 
 USER MANUAL
