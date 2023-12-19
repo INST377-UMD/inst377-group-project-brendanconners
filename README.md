@@ -17,39 +17,50 @@ We created this project to make looking at weather in a very densely populated r
 
 For this Project, our target audience could be anyone who visits Hong Kong. This could be people who live in Hong Kong who dont like the weather app, or for tourists who dont want to use traditional weather apps, and want a more in depth easy to use system. There is no preference for IOS or android, as they can both use this webpage, it is designed for anyone who wants to not only know the weather, but have an interest with severe weather and are curious about it.
  
-## Developer Manual
-INSTALLATIONS AND CONFIGURATIONS (nvm, npm, nodemon, express, supabase-js)
-Libraries used 
-Chart.JS
---------------NEED TO ADD CHART.JS LINK TO LINKS PAGE AND MARKDOWN--------------
-Nvm commands
-  Open terminal
-  Nvm install node
-  Check installation with nvm -v
-  NOTE: nvm install node should automatically install npm
-  Check installation with npm -v
-Now that nvm and npm are installed/configured the workspace’s index.js file.
-  npm init
-  Package name (curr directory): *hit enter*
-  Version: (1.0.0): *hit enter*
-  Description: *dev’s choice*
-  Entry point: (index.js) *hit enter*  
-  Test command: *hit enter*
-  Git repository: *hit enter*
-  Author: *dev’s name, hit enter*
-  License: ISC *hit enter*
-  Is this OK? (yes) *hit enter* 	
-Npm install express
-  This will add a package-lock.json and package.json files to your current directory. These contain the necessary dependencies to run Express.
-Npm install nodemon
-Npm install @supabase/supabase-js
-  Supabase client required field is included in line 3 of index.js
-Once above installation finishes, access the package.json file
-  In this file, add (all excluding brackets) <”start”: “nodemon -e ‘*’”,> In the scripts section of the file (right below line 6).
+# Developer Manual
+
+## Installations and Configurations
+
+### Nvm, npm, nodemon, express, supabase-js
+
+#### Libraries used 
+- Chart.JS
+
+#### Nvm commands
+1. Open terminal
+2. `nvm install node`
+3. Check installation with `nvm -v`
+   - Note: `nvm install node` should automatically install npm
+4. Check installation with `npm -v`
+
+#### Workspace Setup
+1. Now that nvm and npm are installed/configured, open the workspace’s `index.js` file.
+2. Run `npm init`
+   - Package name (curr directory): *hit enter*
+   - Version (1.0.0): *hit enter*
+   - Description: *dev’s choice*
+   - Entry point (index.js): *hit enter*
+   - Test command: *hit enter*
+   - Git repository: *hit enter*
+   - Author: *dev’s name, hit enter*
+   - License: ISC *hit enter*
+   - Is this OK? (yes) *hit enter*
+
+#### Npm Commands
+- `npm install express`
+  - This will add a `package-lock.json` and `package.json` files to your current directory. These contain the necessary dependencies to run Express.
+- `npm install nodemon`
+- `npm install @supabase/supabase-js`
+  - Supabase client required field is included in line 3 of `index.js`
+
+#### Final Configuration
+1. Once the above installations finish, access the `package.json` file.
+2. In this file, add (all excluding brackets) `<"start": "nodemon -e '*'",>` in the scripts section of the file (right below line 6).
+
 ## API Docs
  In this Project we used two main API's we used: 
-[Chart.JS API](https://www.chartjs.org/docs/latest/)
-This API enabled us to be able to chart the weather information from the Hong Kong API
+[Chart.Js API](https://www.chartjs.org/docs/latest/)
+This API enabled us to be able to chart the weather information from the Hong Kong API.
 [Hong Kong Severe Weather API](https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf)
 This API is where we got all of our information from, since the API itself is in Mandarin, I linked the documentation page where you can see how to call it and use it in english, with examples of it
 
@@ -72,7 +83,7 @@ res = {
 JSON object returned, what fields, what type is everything (int, string, array, etc.)
  TESTING- we testing on a trial by error basis using console.log(). Key console.log() instances were kept for developers to understand the code at first glance.
 ROAD MAP- 
-Add some BS
+
 USER MANUAL
 Should just be about using our site
 All pages of the site can be navigated using our universal navigation bar located at the top of each page.
