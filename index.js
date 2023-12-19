@@ -14,10 +14,10 @@ app.get('/', (req, res) => {
     res.sendFile('tempForm.html', { root: __dirname })
 })
 
-app.get('/reporters', (req, res) => {
+app.get('/reporters', async (req, res) => {
     console.log(`Getting Earthquake Reports`)
 
-    const {data, error} = supabase
+    const {data, error} = await supabase
     .from('Customer')
     .select();
 
@@ -38,25 +38,29 @@ app.get('/reporters', (req, res) => {
 
 })
 
-app.post('/',  (req, res) => {
+app.post('/reporters', async (req, res) => {
     console.log('Reporting Earthquake')
 
-    // var firstName = req.body.firstName;
-    // var lastName = req.body.lastName;
-    // var province = req.body.state;
-    // var report = req.body.report;
+    var name = req.body.name;
+    var timeStamp = req.body.timeStamp;
+    var discrict = req.body.discrict;
+    var description = req.body.description;
+    var magNum = req.body.magNum;
 
-    // const {data, error} =  supabase
-    //     .from('Customer')
-    //     .insert([
-    //         {'cust_first_name': firstName, 
-    //         'cust_last_name': lastName, 
-    //         'cust_province': province,
-    //         'cust_report': report}
-    //     ])
-    //     .select();
+    console.log("indexDescription: " + description);
 
-    // console.log(data)
+    const {data, error} =  await supabase
+        .from('Reporters')
+        .insert([
+            {'rep_name': name, 
+            'rep_timeStamp': timeStamp, 
+            'rep_discrict': discrict,
+            'rep_description': description,
+            'rep_magNum': magNum}
+        ])
+        .select();
+
+    console.log("NULL ADD: " + data)
     res.header('Content-type', 'application/json')
     res.send(data)
 })

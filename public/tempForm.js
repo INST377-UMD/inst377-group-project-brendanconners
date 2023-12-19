@@ -1,7 +1,8 @@
 async function getEarthquakereport()
 {
     console.log('Creating Earthquake Report')
-    var test = await fetch(`http://localhost:3000/earthquakes`, 
+    var host = window.location.origin;
+    var test = await fetch(`${host}/users`, 
     {
         method: 'GET',
         headers:
@@ -9,19 +10,16 @@ async function getEarthquakereport()
             "Content-type": "application/json"
         }
     })
+    .then((res) => res)
     .then(async (res) => 
     {
-        console.log(res)
+        // console.log(res)
 
         console.log('Response Status:', res.status)
-        if (res.status != 200 || res.status != 304) 
-        {
-            throw new Error(JSON.stringify(await res.json()));
-            // return;
+        if (res.status == 200 || res.status == 304) {
+            return res.json()
         }
-        else {
-            res.json()
-        }
+        throw Error(JSON.stringify(await res.json()));
     })
     .then((res) => {
         console.log(res)
@@ -97,6 +95,23 @@ async function getEarthquakereport()
         document.body.appendChild(errorDiv)
     })
 }
+async function addReporter() {
+    console.log('Creating Report')
+    var host = window.location.origin;
 
+    var test = await fetch(`${host}/users`, {
+        method: 'POST',
+        body: JSON.stringify({
+            "name": `${document.getElementById('name').value}`,
+            "district": `${document.getElementById('district').value}`,
+            "description": `${document.getElementById('description').value}`,
+            "magnitude": `${document.getElementById('magnitude').value}`,
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+    await getUsers();
+}
 
-// window.onload = getEarthquakereport;
+window.onload = getUsers;

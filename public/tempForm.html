@@ -97,10 +97,13 @@
     </style>
     <head>
         <title>Earthquake Reporting Form</title>
-        <header><h1> Earthquake Reporting Form</h1></header>
+        <header>
+            <h1> Earthquake Reporting Form</h1>
+            <h3>Data Sourced from the Hong Kong Observatory</h3>
+        </header>
         <nav id="main-nav">
             <ul>
-                <li><a href="mainpage.html">Home</a></li>
+                <li><a href="INST377-Week10-PPT.html">Home</a></li>
                 <li><a href="helppage.html">Help</a></li>
                 <li><a href="aboutpage.html">About Us</a></li>
                 <li><a href="generalInfo.html">General Weather Info</a></li>
@@ -109,6 +112,17 @@
         </nav>
     </head>
     <body>
+        <h3><b>Welcome to the Traveler's Hong Kong Weather Guide!</b></h3>
+        <p>If you plan to travel in the Hong Kong, keep an eye out for bad 
+            weather, earthquakes, and tsunamis! With our site, we have combined data from the Hong Kong's observatory to
+            determine the chances of potential significant weather or other natural events that can disrupt one's visit.
+        </p>
+        
+        <h3>Select an option above to be redirected to a page with the information that you are seeking!</h3>
+        <hr>
+        <h3>If you have recently felt an earthquake tremor, please add to the table below!</h3>
+        <h3>Please Submit a ticket to warn others of past Earthquake tremors!</h>
+
         <form onsubmit="addReport(); return false;">
             <label for="Name">Last Name or Company Name:</label>
             <input type="text" id="Name" required>
@@ -126,6 +140,9 @@
             <input type="submit" name="Submit">
             <hr>
         </form>
+        <div class="emergency-box" id ="emergencyBox">
+            <h1 id ="emergency">EMERGENCY:</h1>
+        </div>
         <footer>INST377 Copyright by Brendan Conners, Daniel Adams, and Joan Ojukwu </footer
         </body>
     
