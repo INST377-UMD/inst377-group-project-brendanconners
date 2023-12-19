@@ -74,49 +74,43 @@ In this project, we used two main APIs:
 ```javascript
 var choice = "fnd";
 fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
-  .then(response => response.json())
-  .then(data => {
-    // Returned JSON object structure
-    console.log(data);
-    /*
-      res = {
-        "generalSituation": string,
-        "seaTemp": [
-          {"place": string},
-          {"recordTime": date},
-          {"unit": string, "value": int}
-        ],
-        "soilTemp": [
-          {"0": []}
-        ]
-      };
-    */
-    
-    // JSON object returned, specifying fields and data types
-    /*
-      TESTING- we tested on a trial by error basis using console.log(). 
-      Key console.log() instances were kept for developers to understand the code at first glance.
-    */
-  })
-  .catch(error => console.error(error));
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res)
+    });
+// Returns a JSON object with a general outlook of the next few days' forecast. Includes an array of 9 JSON
+// objects, with each object containing the date, min temp, max temp, min relative humidity, max relative humidity,
+// chance of significant parcipitation, and day of the week.
+// used in the createChart() and getForecast() function calls
+```
+```javascript
+var choice = "flw"
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res)
+    });
+  // returns a JSON object containing general infomration about fire danger warnings, a forecast description, 
+  // the forecast's period, an outlook for the next two days, and a date
+  // used in the loadGeneralInfo() function call
+```
+```javascript
+    var choice = "warningInfo"
+
+    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
+    .then((res) => res.json())
+    .then((res) => {
+        console.log(res)
+    });
+  // 
 ```
 
 ### ROAD MAP
 When working with all of the API's we knew it was going to get complicated, and so the goal was to create all of the CSS / styling first so then we can all focus on the API. Next the Hong Kong API was different than the ones we have used before. It is unique in the sense that you dont have to add a '/' at the end with the specific data you are trying to get, rather type in a specific code in the 'dataType' part of the URL and they are linked. Next we knew that we were going to have issues all working on the same repository, with all remote local computers, and so it took some trial and error in order to fix that and create seperate branches. When Using this API there are things like the forecast weather Icon, that is supposed to return a icon, but in reality it is only a number that coorespondes to an icon, so we have to get rid of that when trying to use the information itself. You can use this API for future development with other areas surrounding Hong Kong. With more time and more data, future development could add other areas to do the same thing, all thats needed is the data itself.
 
-USER MANUAL
-Should just be about using our site
+### USER MANUAL
 All pages of the site can be navigated using our universal navigation bar located at the top of each page.
-Essentially everything is automated to load for the user upon navigating to the specific page.
-For the nine day forecast chart, simply select the data you want to see on the chart and click plot!
-For more specific details regarding the Hong Kong Observatory’s API documentation, please refer to our site’s help page
-
-
-
-
-
-
-
-
-
-
+The generalInfo.html, INST377-Week10-PPT.html (aka, homePage), and dailyForecast.html connect to a backend endpoint upon loading, with data fetched from these endpoints automatically. The user does not need to submit data or perform any actions to run these endpoints.
+For the nine day forecast chart, simply select the data you want to see on the chart and click plot! This offers a nine day forecast of the max/min temperatures in ºF and max/min relative humidity percentage.
+For more specific details regarding the Hong Kong Observatory’s API documentation, please refer to our site’s help page.
