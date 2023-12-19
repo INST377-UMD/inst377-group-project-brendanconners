@@ -80,68 +80,19 @@ function warningInfo() {
         console.log("TEST")
         console.log(res)
         
-        for(dIdx = 0; dIdx < res.details.length; dIdx++) {
-            var option = document.createElement("option");
-            option.text = res.details[dIdx].contents[0];
-            option.value = dIdx;
-            document.getElementById("emergencyBox").appendChild(option); 
-
-            /*
-            for(idx = 0; idx < res.details[dIdx].contents.length; idx ++) {
+        toStr = JSON.stringify(res);
+        console.log("leng:" + toStr.length)
+        if("display" in res) { // if display exists in the response, emergency messages exist and must be shown
+            for(dIdx = 0; dIdx < res.length; dIdx++) {
                 var option = document.createElement("option");
-                option.text = res.details[dIdx].contents[idx];
-                option.value = idx;
-                
-                document.getElementById("emergencyBox").appendChild(option); 
-                if(idx = res.details[dIdx].contents.length - 1) {
-                    var spacer = document.createElement("spacer");
-                    spacer.text = ""
-                    document.getElementById("emergencyBox").appendChild(option); 
-                }
+                option.text = res.details[dIdx].contents[0];
+                option.value = dIdx;
+                document.getElementById("emergencyBox").appendChild(option);      
             }
-            */
-        }
-        
-        /*
-        for(idx = 0; idx < res.details.length; idx ++) {
-            //var warning = document.createElement("warning");
-            var option = document.createElement("option");
-            option.text = res.details.warningStatementCode + ": " + "DESC" +  " from: " + "TIME";
-            option.value = idx;
-
-            document.getElementById("emergencyBox").appendChild(option);
-
-        }
-        */
-    });
-}
-
-/*
-function emergencyInfo() {
-    var choice = "flw"
-
-    fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=${choice}&lang=en`) 
-    .then((res) => res.json())
-    .then((res) => {
-        console.log("TEST")
-        console.log(res)
-        
-        document.getElementById("fire").innerHTML = res.fireDangerWarning;
-        document.getElementById("cyclone").innerHTML = res.tcInfo;
-        // the API returns an empty string for fire warnings and tropical cyclone warnings
-        // if either have any length, an emergency message will be promptly displayed on the page
-        if(res.fireDangerWarning.length > 0 || res.tcInfo.length > 0) {
-            document.getElementById.apply("emergency").style.display = "block";
-        }
-        // A test for our home page emergency display system
-       
-        document.getElementById("fire").innerHTML = "FIRE TEST";
-        document.getElementById("cyclone").innerHTML = "CYCLONE TEST";
-        if(document.getElementById("cyclone").innerHTML.length > 0 || document.getElementById("fire").innerHTML.length > 0) {
             document.getElementById("emergencyBox").style.display = "block";
-        }
-        
+        } 
     });
 }
-*/
+
+
 

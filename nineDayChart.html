@@ -104,8 +104,8 @@
         <select id="dataChosen" name = "dataChosen">
             <option value="minT">Minimum Temperature (ºF)</option>
             <option value="maxT">Maximum Temperature (ºF)</option>
-            <option value="minRh">Minimum Humidity Level</option>
-            <option value="maxRh">Maximum Humidity Level</option>
+            <option value="minRh">Minimum Humidity Level (%)</option>
+            <option value="maxRh">Maximum Humidity Level (%)</option>
         </select>
         <br>
         <button onclick="createChart()">Plot!</button>
@@ -132,26 +132,34 @@
                     if(dataChosen == "minT") {
                         for(idx = 0; idx < res.weatherForecast.length; idx ++) {
                             console.log("CURR ELT: " + res.weatherForecast[idx].week)
-                            dayLabels[idx] = res.weatherForecast[idx].week;
+                            var oooDate = res.weatherForecast[idx].forecastDate;
+                            var date = "(" + oooDate.substring(4,6) + "/" + oooDate.substring(6,8) + ")";
+                            dayLabels[idx] = res.weatherForecast[idx].week + date;
                             var lowInF = ((res.weatherForecast[idx].forecastMintemp.value * 9) / 5) + 32;
                             dataRes[idx] = lowInF;
                         }
                     } else if (dataChosen == "maxT") {
                         for(idx = 0; idx < res.weatherForecast.length; idx ++) {
-                            console.log("CURR ELT: " + res.weatherForecast[idx].week)
+                            console.log("CURR ELT: " + res.weatherForecast[idx].week);
+                            var oooDate = res.weatherForecast[idx].forecastDate;
+                            var date = "(" + oooDate.substring(4,6) + "/" + oooDate.substring(6,8) + ")";
                             dayLabels[idx] = res.weatherForecast[idx].week;
                             var highInF = ((res.weatherForecast[idx].forecastMaxtemp.value * 9) / 5) + 32;
                             dataRes[idx] = highInF;
                         }
                     } else if(dataChosen == "minRh") {
                         for(idx = 0; idx < res.weatherForecast.length; idx ++) {
-                            console.log("CURR ELT: " + res.weatherForecast[idx].week)
+                            console.log("CURR ELT: " + res.weatherForecast[idx].week);
+                            var oooDate = res.weatherForecast[idx].forecastDate;
+                            var date = "(" + oooDate.substring(4,6) + "/" + oooDate.substring(6,8) + ")";
                             dayLabels[idx] = res.weatherForecast[idx].week;
                             dataRes[idx] = res.weatherForecast[idx].forecastMinrh.value
                         }
                     } else {//must be maxRh
                         for(idx = 0; idx < res.weatherForecast.length; idx ++) {
-                            console.log("CURR ELT: " + res.weatherForecast[idx].week)
+                            console.log("CURR ELT: " + res.weatherForecast[idx].week);
+                            var oooDate = res.weatherForecast[idx].forecastDate;
+                            var date = "(" + oooDate.substring(4,6) + "/" + oooDate.substring(6,8) + ")";
                             dayLabels[idx] = res.weatherForecast[idx].week;
                             dataRes[idx] = res.weatherForecast[idx].forecastMaxrh.value
                         }
