@@ -1,0 +1,109 @@
+<html>
+    <style>
+        body {
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            }
+        
+        .content {
+            padding: 0px;
+            text-align: center;
+            }
+        header{
+            text-align: center;
+            background-color:coral;
+            padding: 10px;
+            margin: 0;
+        }
+        #main-nav{
+                background-color:lightgreen;
+            }
+        #main-nav li{
+                display: inline;
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+        #main-nav ul ul{
+                display: none;
+                position: absolute;
+            }
+        #main-nav ul li{
+                list-style-type: none;
+                display: inline-block;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 32%;
+            }
+        #main-nav li:hover{
+                background-color:darkslategray;
+                color: white;
+            }
+        #main-nav a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            }
+            
+        .container {
+            display: flex;
+            justify-content:space-evenly;
+            flex-wrap: wrap;
+            padding: 0%;
+        }
+
+        .container > div {
+            width: 40%;
+            background-color:antiquewhite;
+            padding: 5px;
+            margin-right: 5px;
+            border-radius: 8px;
+            border: 5px black;
+        }
+    </style>
+    <head>
+        <title>Help Page</title>
+        <header><h1>Help Page!</h1></header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="INST377-Week10-PPT.html">Home</a></li>
+                <li><a href="helppage.html">Help</a></li>
+                <li><a href="aboutpage.html">About Us</a></li>
+                <li><a href="generalInfo.html">General Weather Info</a></li>
+                <li><a href="dailyForecast.html">Daily Forecast</a></li>
+                <li><a href="nineDayChart.html">Forecast Chart</a></li>
+            </ul>
+        </nav>
+    </head>
+    <body>
+        <div class = 'content'>
+            <div class = 'container'>
+                <div>
+                    <h3>
+                        API Information
+                    </h3>
+                    <h4>API Used: </h4>
+                    <p><a href="https://data.weather.gov.hk/weatherAPI/opendata/weather.php" title="API Used" >https://data.weather.gov.hk/weatherAPI/opendata/weather.php</a></p>
+                    <h4>Documentation of API: </h4>
+                    <p><a href ="https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf" title = "Documentation"> https://data.weather.gov.hk/weatherAPI/doc/HKO_Open_Data_API_Documentation.pdf</a></p>
+                    <h4> Request Example: </h4>
+                    <p><a href = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en" title = "Request Example"> https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warninginfo&lang=en</a></p>
+                </div>
+                <div>
+                    <h3>
+                        About our API
+                    </h3>
+                    <h4><u>HTTP Request Method</u></h4>
+                    <p>GET</p>
+                    <h4><u>Return Type</u></h4>
+                    <p>JSON</p>
+                    
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
