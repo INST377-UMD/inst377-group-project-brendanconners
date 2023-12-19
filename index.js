@@ -52,11 +52,11 @@ app.post('/reporters', async (req, res) => {
     const {data, error} =  await supabase
         .from('Reported Earthquakes')
         .insert([
-            {'rep_name': name, 
-            'rep_timeStamp': timeStamp, 
-            'rep_discrict': discrict,
-            'rep_description': description,
-            'rep_magNum': magNum}
+            {'report_LastName': name, 
+            'report_District': timeStamp, 
+            'report_TimeStamp': discrict,
+            'report_Description': description,
+            'magnitude': magNum}
         ])
         .select();
 
