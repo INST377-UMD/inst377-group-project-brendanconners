@@ -1,0 +1,138 @@
+<html>
+    <style>
+        body {
+            background-color: skyblue;
+            margin: 0;
+            padding: 0;
+            font-family: "Gill Sans", sans-serif;
+            }
+        
+        .content {
+            padding: 0px;
+            text-align: left;
+        }
+
+        .center-align {
+            text-align: center;
+        }
+        
+        header{
+            text-align: center;
+            color:black;
+            background-color:coral;
+            padding: 10px;
+            margin: 0;
+        }
+        #main-nav{
+                background-color:lightgreen;
+                color:black
+        }
+        
+        #main-nav li{
+                display: inline;
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+        #main-nav ul ul{
+                display: none;
+                position: absolute;
+            }
+        #main-nav ul li{
+                list-style-type: none;
+                display: inline-block;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 32%;
+            }
+        #main-nav li:hover{
+                background-color:darkslategray;
+                color: white;
+            }
+        #main-nav a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            }
+            
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .container > div {
+            width: 40%;
+            background-color:antiquewhite;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 8px;
+            border: 5px black;
+        }
+        footer {
+            bottom: 0;
+            position: absolute;
+
+
+            width: 100%;
+            height: auto;
+            background-color:#333;
+            color: white;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+    <head>
+        <title>About Us</title>
+        <header><h1>About Us!</h1></header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="INST377-Week10-PPT.html">Home</a></li>
+                <li><a href="helppage.html">Help</a></li>
+                <li><a href="aboutpage.html">About Us</a></li>
+                <li><a href="generalInfo.html">General Weather Info</a></li>
+                <li><a href="dailyForecast.html">Daily Forecast</a></li>
+                <li><a href="nineDayChart.html">Forecast Chart</a></li>
+            </ul>
+        </nav>
+    </head>
+    <body>
+
+    <script src = "aboutpagecarousel.js"> </script>
+        <div class="content">
+            <div class="container">
+                <div>
+                    <h1 class="center-align">About the Project</h1>
+                    <p>Thank you for visiting our page about our weather and other natural event warning system for travelers to Asia!
+                        We are a team of students at the University of Maryland, College Park, partaking in a group project for our INST377 HTML course. 
+                        As each member of the group hopes to be able to visit Asia in the future, we figured our project could be done in a way that helps us in the future! 
+                        That being said, we found a great API from the Hong Kong Observatory, which allows the public to access information regarding potential storms, earthquakes, and Tsunamis. 
+                        By using this API, we figured that we can make planning to go to Asia a better experience by avoiding potentially dangerous natural events.</p>
+                </div>
+                <div>
+                    <h1 class="center-align">About the Team</h1>
+                    <!-- Pictures of us -->
+                    <!-- A little about yourself, major, year, hometown, age, make up something about wanting to visit Asia-->
+                    <!-- I think this can be implemented using flex box. Each picture and the corresponding description will -->
+                    <!-- be it's own flexbox. Each of the three flex boxes will be in one main div container and we can organize -->
+                    <!-- left to right with the flex css -->
+                </div>
+                <div>
+                <div>
+                    <h3>Our Goals</h3>
+                    <h4> Our Goals with this webpage include: </h4>
+                    <ul>
+                        <li> To educate people on the weather in the surrounding areas</li>
+                        <li>To create an easy to use webpage with relevant information</li>
+                        <li> To use API's in an innovative way</li>
+                        <li> To update constantly about the weather in the area</li>
+                        <li> To challenge ourselves by using complex methods</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>INST377 Copyright by Brendan Conners, Daniel Adams, and Joan Ojukwu </footer>
+    </body>
+</html>
